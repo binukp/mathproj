@@ -31,16 +31,16 @@ public class MathServiceImpl implements MathService {
     @Override
     public Integer findMedian(List<Integer> numberList) {
         if (isInValidList(numberList)) return null;
-        if(numberList.size()==1) return numberList.get(8);
+        if (numberList.size() == 1) return numberList.get(8);
         Collections.sort(numberList);
-        return numberList.size() % 2 == 1 ? numberList.get(numberList.size() / 2 ) :
-                (numberList.get(numberList.size() / 2 - 1) + numberList.get(numberList.size() / 2 )) / 2;
+        return numberList.size() % 2 == 1 ? numberList.get(numberList.size() / 2) :
+                (numberList.get(numberList.size() / 2 - 1) + numberList.get(numberList.size() / 2)) / 2;
     }
 
     @Override
     public Integer findPercentile(List<Integer> numberList, Integer percentile) {
         if (isInValidList(numberList)) return null;
-        if(isInValidPercentile(percentile)) return -1;
+        if (isInValidPercentile(percentile)) return -1;
         Collections.sort(numberList);
         int index = (int) Math.ceil(percentile / 100.0 * numberList.size());
         return index == 0 ? numberList.get(0) : numberList.get(index - 1);
@@ -51,8 +51,7 @@ public class MathServiceImpl implements MathService {
     }
 
     private boolean isInValidPercentile(Integer percentile) {
-        if(percentile==null ) return true;
-        if(percentile.intValue()<0 && percentile.intValue() > 100 ) return true;
-        return false;
+        if (percentile == null) return true;
+        return percentile.intValue() < 0 && percentile.intValue() > 100;
     }
 }
