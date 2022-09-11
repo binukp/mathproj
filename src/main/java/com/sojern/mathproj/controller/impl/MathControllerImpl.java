@@ -59,7 +59,7 @@ public class MathControllerImpl implements MathController {
     }
 
     private boolean isInValidList(List<Integer> numberList) {
-        return numberList == null || numberList.size() == 0;
+        return numberList == null || numberList.isEmpty();
     }
 
     private boolean isInValidPercentile(Integer percentile) {

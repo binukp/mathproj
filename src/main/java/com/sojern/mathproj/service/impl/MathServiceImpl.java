@@ -47,7 +47,7 @@ public class MathServiceImpl implements MathService {
     }
 
     private boolean isInValidList(List<Integer> numberList) {
-        return numberList.size() == 0;
+        return numberList.isEmpty();
     }
 
     private boolean isInValidPercentile(Integer percentile) {
